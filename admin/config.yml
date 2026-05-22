@@ -1,0 +1,108 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+publish_mode: simple
+
+collections:
+  - name: "pages"
+    label: "ページ"
+    files:
+      - name: "home"
+        label: "LPトップ"
+        file: "content/site.json"
+        format: "json"
+        fields:
+          - label: "サイト基本情報"
+            name: "site"
+            widget: "object"
+            fields:
+              - { label: "ブラウザタイトル", name: "title", widget: "string" }
+              - { label: "説明文", name: "description", widget: "text" }
+              - { label: "フッター文言", name: "footer", widget: "string" }
+          - label: "トップ"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "上部ラベル", name: "eyebrow", widget: "string" }
+              - { label: "事業名", name: "title", widget: "text" }
+              - { label: "説明文", name: "lead", widget: "text" }
+              - label: "概要チップ"
+                name: "facts"
+                widget: "list"
+                field: { label: "文言", name: "text", widget: "string" }
+              - label: "画像ギャラリー"
+                name: "gallery"
+                widget: "list"
+                fields:
+                  - { label: "画像", name: "image", widget: "image" }
+                  - { label: "代替テキスト", name: "alt", widget: "string" }
+                  - { label: "キャプション", name: "caption", widget: "string" }
+          - label: "事業説明"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "セクションラベル", name: "kicker", widget: "string" }
+              - { label: "見出し", name: "title", widget: "text" }
+              - label: "本文"
+                name: "body"
+                widget: "list"
+                field: { label: "段落", name: "paragraph", widget: "text" }
+          - label: "具体的な活動内容"
+            name: "activities"
+            widget: "object"
+            fields:
+              - { label: "セクションラベル", name: "kicker", widget: "string" }
+              - { label: "見出し", name: "title", widget: "text" }
+              - label: "活動項目"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "見出し", name: "title", widget: "string" }
+                  - { label: "本文", name: "body", widget: "text" }
+          - label: "協働の考え方"
+            name: "approach"
+            widget: "object"
+            fields:
+              - { label: "セクションラベル", name: "kicker", widget: "string" }
+              - { label: "見出し", name: "title", widget: "text" }
+              - label: "本文"
+                name: "body"
+                widget: "list"
+                field: { label: "段落", name: "paragraph", widget: "text" }
+          - label: "時系列"
+            name: "timeline"
+            widget: "object"
+            fields:
+              - { label: "セクションラベル", name: "kicker", widget: "string" }
+              - { label: "見出し", name: "title", widget: "string" }
+              - label: "時系列項目"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "年・期間", name: "period", widget: "string" }
+                  - { label: "見出し", name: "title", widget: "string" }
+                  - { label: "本文", name: "body", widget: "text" }
+          - label: "代表者メッセージ"
+            name: "message"
+            widget: "object"
+            fields:
+              - { label: "セクションラベル", name: "kicker", widget: "string" }
+              - { label: "見出し", name: "title", widget: "text" }
+              - { label: "本文", name: "body", widget: "text" }
+              - { label: "署名", name: "signature", widget: "text" }
+          - label: "プロジェクト概要"
+            name: "summary"
+            widget: "object"
+            fields:
+              - { label: "セクションラベル", name: "kicker", widget: "string" }
+              - { label: "見出し", name: "title", widget: "string" }
+              - label: "概要項目"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "項目名", name: "label", widget: "string" }
+                  - { label: "内容", name: "value", widget: "text" }
