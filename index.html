@@ -8,6 +8,7 @@
       name="description"
       content="POCUSとICTを活用し、日本とモンゴルの救急医療アクセス改善を目指す国際協働事業の紹介ページです。"
     />
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body id="top">
@@ -218,5 +219,17 @@
 
     <button class="back-to-top" type="button" aria-label="トップへ戻る">↑</button>
     <script src="script.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function (user) {
+          if (!user) {
+            window.netlifyIdentity.on("login", function () {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+        window.netlifyIdentity.init();
+      }
+    </script>
   </body>
 </html>
